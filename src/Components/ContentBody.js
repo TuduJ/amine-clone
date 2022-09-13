@@ -1,5 +1,6 @@
+import { Col, Row } from "antd";
 import React from "react";
-import Card from "./Card";
+import CardData from "./CardData";
 
 const ContentBody = (props) => {
   const { bodyText, animeData } = props;
@@ -8,8 +9,8 @@ const ContentBody = (props) => {
       <div>
         <div className="row d-flex">
           {animeData?.map((anime) => (
-            <div key={anime?.mal_id} className="col-sm-6 col-md-4 col-lg-3">
-              <Card cardData={anime} />
+            <div key={anime?.mal_id} className="col-sm-6 col-lg-4 col-xl-3">
+              <CardData cardData={anime} />
             </div>
           ))}
         </div>

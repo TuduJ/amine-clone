@@ -1,6 +1,8 @@
 import React from "react";
+import { Card } from 'antd';
+const { Meta } = Card;
 
-const Card = (props) => {
+const CardData = (props) => {
   const { cardData } = props;
   return (
     <>
@@ -19,4 +21,4 @@ const Card = (props) => {
   );
 };
 
-export default Card;
+export default CardData;
