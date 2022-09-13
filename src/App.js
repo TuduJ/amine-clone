@@ -6,7 +6,7 @@ import Home from "./Pages/Home";
 function App() {
   return (
     <>
-      <div className="container-md mt-5 bg-transparent text-white">
+      <div className="mx-5 mt-5 bg-transparent text-white">
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home/>}/>

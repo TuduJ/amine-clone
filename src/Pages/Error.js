@@ -5,7 +5,7 @@ import errorLogo from "../Assets/error_image.png"
 const Error = () => {
   return (
     <>
-      <div className="mt-5 text-center text-white">
+      <div className="text-center text-white">
         <Header />
         <div className="container-md mt-5">
             <img className="img-fluid" style={{ width: "15%"}} src={errorLogo} alt="error_image"/>

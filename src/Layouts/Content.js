@@ -1,19 +1,17 @@
 import React from "react";
+import ContentBody from "../Components/ContentBody";
+import Watchlist from "../Components/Watchlist";
 
 const Content = (props) => {
-    const {bodyText} = props;
+    const {bodyText, animeData} = props;
   return (
-    <div className="container mt-5 text-center">
+    <div className="mx-3 mt-4">
       <div className="row">
-        <div className="col-sm-8 align-self-center border">
-            <p className="fs-4">
-            {bodyText}
-            </p>
+        <div className="col-sm-9 align-self-center">
+            <ContentBody bodyText={bodyText} animeData={animeData}/>
         </div>
-        <div className="col-sm-4 align-self-center border">
-            <p className="fs-5">
-                Watchlist Section
-            </p>
+        <div className="col-sm-3 align-self-center">
+            <Watchlist/>
         </div>
       </div>
     </div>
