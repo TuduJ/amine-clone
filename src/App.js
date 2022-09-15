@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AnimeDetail from "./Pages/AnimeDetail";
 import Error from "./Pages/Error";
 import Genre from "./Pages/Genre";
 import Home from "./Pages/Home";
@@ -11,6 +12,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/genre" element={<Genre/>}/>
+            <Route path="/anime/:id" element={<AnimeDetail/>}/>
             <Route path="*" element={<Error/>}/>
           </Routes>
         </BrowserRouter>

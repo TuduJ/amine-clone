@@ -6,7 +6,7 @@ const Header = () => (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-3 rounded-4">
       <div className="container-fluid">
         <div>
-          <Link className="navbar-brand fw-bolder" to={"/"}>
+          <Link className="navbar-brand fs-3 fw-bolder" to={"/"}>
             ANIME WORLD
           </Link>
         </div>
@@ -21,16 +21,20 @@ const Header = () => (
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div
+          className="collapse navbar-collapse"
+          id="navbarSupportedContent"
+          style={{ marginLeft: "2rem" }}
+        >
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <NavLink className="navbar-brand" to={"/"}>
+              <NavLink className="navbar-brand fs-5 fw-light" to={"/"}>
                 Home
               </NavLink>
             </li>
 
             <li className="nav-item">
-              <NavLink className="navbar-brand" to={"/genre"}>
+              <NavLink className="navbar-brand fs-5 fw-light" to={"/genre"}>
                 Genre
               </NavLink>
             </li>
@@ -38,6 +42,7 @@ const Header = () => (
           <form className="d-flex" role="search">
             <input
               className="form-control me-2"
+              style={{ width: "30vw" }}
               type="search"
               placeholder="Search"
               aria-label="Search"

@@ -6,6 +6,39 @@ body {
   color: #0d6efd;
 }
 
+.img-desc {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  /* background: rgba(29, 106, 154, 0.72); */
+  color: rgba(255, 191, 0, 0.867);;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .2s, visibility .2s;
+}
+
+.card:hover {
+  background-color: black;
+  transition-duration: 300ms;
+}
+
+.card:hover .card-body {
+  background-color: rgba(255, 191, 0, 0.867);
+  transition-duration: 300ms;
+  border-radius: 0px 0px 5px 5px ;
+}
+
+.card:hover .card-img {
+  opacity: 0.3;
+  transition-duration: 300ms;
+}
+
+.card:hover .img-desc {
+  visibility: visible;
+  opacity: 1;
+}
+
 .card-img {
   height: 25rem;
 }

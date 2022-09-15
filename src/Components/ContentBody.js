@@ -1,6 +1,6 @@
-import { Col, Row } from "antd";
 import React from "react";
 import CardData from "./CardData";
+import { Link } from "react-router-dom";
 
 const ContentBody = (props) => {
   const { bodyText, animeData } = props;
@@ -10,7 +10,9 @@ const ContentBody = (props) => {
         <div className="row d-flex">
           {animeData?.map((anime) => (
             <div key={anime?.mal_id} className="col-sm-6 col-lg-4 col-xl-3">
-              <CardData cardData={anime} />
+              <Link to={`/anime/${anime?.mal_id}/`}>
+                <CardData cardData={anime} />
+              </Link>
             </div>
           ))}
         </div>
