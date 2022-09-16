@@ -11,7 +11,7 @@ const CardData = (props) => {
         <div>
           <img
             src={cardData?.images?.jpg?.image_url}
-            className="card-img-top card-img"
+            className="card-img-top card-img img-fluid"
             alt="..."
           />
           <p className="img-desc fs-6 align-middle">Click to know more</p>

@@ -46,3 +46,17 @@ body {
 .card-desc {
   height: 6rem;
 }
+
+.dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.3);
+  display: inline-block;
+  margin: 2px 10px;
+}
+
+.anime-synop {
+  text-align: justify;
+}
+

@@ -10,10 +10,10 @@ function App() {
       <div className="mx-5 mt-5 bg-transparent text-white">
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/genre" element={<Genre/>}/>
-            <Route path="/anime/:id" element={<AnimeDetail/>}/>
-            <Route path="*" element={<Error/>}/>
+            <Route path="/" element={<Home />} />
+            <Route path="/genre" element={<Genre />} />
+            <Route path="/anime/:id" element={<AnimeDetail />} />
+            <Route path="*" element={<Error />} />
           </Routes>
         </BrowserRouter>
       </div>

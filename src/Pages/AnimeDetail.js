@@ -1,13 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../Layouts/Header";
-import Content from "../Layouts/Content";
+import AnimeContent from "../Components/AnimeContent";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 const AnimeDetail = () => {
+  const url = useParams();
+  const [showData, setShowData] = useState();
+
+  const getShowData = async () => {
+    const res = await (
+      await fetch(`https://api.jikan.moe/v4/anime/${url.id}`)
+    ).json();
+    setShowData(res?.data);
+  };
+
+  useEffect(() => {
+    getShowData();
+  }, []);
+
   return (
     <>
       <div className="text-white">
         <Header />
-        <Content bodyText={"This my Anime Detail Page"}/>
+        <AnimeContent showData={showData} />
       </div>
     </>
   );
