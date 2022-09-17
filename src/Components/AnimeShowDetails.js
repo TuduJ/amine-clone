@@ -48,7 +48,7 @@ const AnimeShowDetails = (props) => {
             </span>
           </p>
 
-          <a href={showData?.trailer?.url} target="_blank">
+          <a href={showData?.trailer?.url} target="_blank" rel="noreferrer">
             <button type="button" className="btn btn-outline-warning">
               Watch Trailer
             </button>

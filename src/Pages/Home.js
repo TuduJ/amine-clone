@@ -1,25 +1,13 @@
-import React, { useEffect, useState } from "react";
-import Header from "../Layouts/Header";
+import React from "react";
 import Content from "../Layouts/Content";
 
-const Home = () => {
-  const [animeData, setAnimeData] = useState([]);
-
-  const getAnimeData = async () => {
-    const res = await (await fetch(`https://api.jikan.moe/v4/anime`)).json();
-    setAnimeData(res?.data);
-    console.log(res?.data);
-  };
-
-  useEffect(() => {
-    getAnimeData();
-  }, []);
+const Home = (props) => {
+  const { animeData } = props;
 
   return (
     <>
       <div className="text-white">
-        <Header />
-        <Content bodyText={"This my Home Page"} animeData={animeData} />
+        <Content animeData={animeData} />
       </div>
     </>
   );

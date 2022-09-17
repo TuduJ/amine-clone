@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import Header from "../Layouts/Header";
 import AnimeContent from "../Components/AnimeContent";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import Content from "../Layouts/Content";
 
-const AnimeDetail = () => {
+const AnimeDetail = (props) => {
+  const { searchValue, animeData } = props;
+
   const url = useParams();
   const [showData, setShowData] = useState();
 
@@ -21,10 +23,13 @@ const AnimeDetail = () => {
 
   return (
     <>
-      <div className="text-white">
-        <Header />
-        <AnimeContent showData={showData} />
-      </div>
+      {searchValue?.length ? (
+        <Content animeData={animeData} />
+      ) : (
+        <div className="text-white">
+          <AnimeContent showData={showData} />
+        </div>
+      )}
     </>
   );
 };
