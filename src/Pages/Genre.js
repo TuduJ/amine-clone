@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Content from "../Layouts/Content";
 
-const Genre = (props) => {
-  const { searchValue, animeData } = props;
+const Genre = () => {
   const [genres, setGenres] = useState();
 
   const getGenreData = async () => {
@@ -19,19 +17,15 @@ const Genre = (props) => {
   return (
     <>
       <div className="text-white p-4">
-        {searchValue?.length ? (
-          <Content animeData={animeData} />
-        ) : (
-          genres?.map((data) => (
-            <button
-              type="button"
-              className="btn btn-warning m-2"
-              key={data?.mal_id}
-            >
-              {data?.name}
-            </button>
-          ))
-        )}
+        {genres?.map((data) => (
+          <button
+            type="button"
+            className="btn btn-warning m-2"
+            key={data?.mal_id}
+          >
+            {data?.name}
+          </button>
+        ))}
       </div>
     </>
   );

@@ -46,6 +46,7 @@ const Header = (props) => {
 
             <div style={{ width: "30vw" }}>
               <Search
+                allowClear
                 placeholder="input search text"
                 onSearch={onSearch}
                 enterButton
