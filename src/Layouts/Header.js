@@ -1,16 +1,34 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Input } from "antd";
+import { useDispatch } from "react-redux";
+import { setAnimeList } from "../redux/actions/animeActions";
+import axios from "axios";
 const { Search } = Input;
 
-const Header = (props) => {
-  const { onSearch } = props;
+const Header = () => {
+  const dispatch = useDispatch();
+
+  const onSearchAnime = async (value) => {
+    if (value !== "") {
+      const response = await axios
+        .get(`https://api.jikan.moe/v4/anime?q=${value}&limit=20`)
+        .catch((err) => {
+          console.log("Error -> ", err);
+        });
+      dispatch(setAnimeList(response?.data));
+    } 
+    // else {
+    //   dispatch(removeAnimeList());
+    // }
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-3 rounded-4">
         <div className="container-fluid">
           <div>
-            <Link className="navbar-brand fs-3 fw-bolder" to={"/"}>
+            <Link className="navbar-brand fs-3 fw-bolder" reloadDocument to={"/"}>
               ANIME WORLD
             </Link>
           </div>
@@ -32,13 +50,13 @@ const Header = (props) => {
           >
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink className="navbar-brand fs-5 fw-light" to={"/"}>
+                <NavLink className="navbar-brand fs-5 fw-light" reloadDocument to={"/"}>
                   Home
                 </NavLink>
               </li>
 
               <li className="nav-item">
-                <NavLink className="navbar-brand fs-5 fw-light" to={"/genre"}>
+                <NavLink className="navbar-brand fs-5 fw-light" reloadDocument to={"/genre"}>
                   Genre
                 </NavLink>
               </li>
@@ -48,7 +66,7 @@ const Header = (props) => {
               <Search
                 allowClear
                 placeholder="input search text"
-                onSearch={onSearch}
+                onSearch={onSearchAnime}
                 enterButton
               />
             </div>
