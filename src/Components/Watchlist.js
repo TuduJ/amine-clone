@@ -25,7 +25,8 @@ const Watchlist = (props) => {
 
   useEffect(() => {
     const data = JSON.parse(sessionStorage.getItem('wishlist'));
-    setWishListBoard(data);
+    if(!data.length)
+      setWishListBoard(data);
   }, [])
 
   useEffect(() => {
