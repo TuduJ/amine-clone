@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect, useState } from "react";
 import { useDrop } from "react-dnd";
 
@@ -16,7 +17,6 @@ const Watchlist = (props) => {
     
     const data = JSON.parse(sessionStorage.getItem("wishlist"))
     if(data?.find((ele) => ele?.mal_id === id)){
-      console.log("Matched Data")
       return
     }
     const wishList = animeData?.data?.filter((anime) => id === anime?.mal_id);
