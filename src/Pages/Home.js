@@ -23,6 +23,7 @@ const Home = () => {
     return () => {
       dispatch(removeAnimeList());
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

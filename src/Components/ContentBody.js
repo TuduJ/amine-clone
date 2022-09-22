@@ -2,24 +2,24 @@ import React from "react";
 import CardData from "./CardData";
 import { Link } from "react-router-dom";
 import anya from "../Assets/anya.png";
-import { Button } from "antd";
-import axios from "axios";
-import { useDispatch } from "react-redux";
+// import { Button } from "antd";
+// import axios from "axios";
+// import { useDispatch } from "react-redux";
 
 const ContentBody = (props) => {
   const { animeData } = props;
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const onButtonNext = () => {
-    fetchNextPageData();
-  }
+  // const onButtonNext = () => {
+  //   fetchNextPageData();
+  // }
 
-  const fetchNextPageData = async() => {
-    const response = await axios.get(animeData?.links?.next).catch((err) => {
-      console.log("Error -> ", err);
-    });
-    console.log(response?.data)
-  }
+  // const fetchNextPageData = async() => {
+  //   const response = await axios.get(animeData?.links?.next).catch((err) => {
+  //     console.log("Error -> ", err);
+  //   });
+  //   console.log(response?.data)
+  // }
 
   const animeList = () => {
     return (

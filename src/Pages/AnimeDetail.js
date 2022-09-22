@@ -29,11 +29,14 @@ const AnimeDetail = () => {
   };
 
   useEffect(() => {
-    if (url.id && url.id !== "") fetchAnimeDetails();
+    if (url.id && url.id !== "") {
+      fetchAnimeDetails();
+    }
     return () => {
       dispatch(removeAnimeDetail());
     };
-  }, [url]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
