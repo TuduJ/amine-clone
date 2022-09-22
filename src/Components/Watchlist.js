@@ -14,7 +14,7 @@ const Watchlist = (props) => {
 
   const addImageToBoard = (id) => {
     
-    const data = JSON.parse(window.sessionStorage.getItem("wishlist"))
+    const data = JSON.parse(sessionStorage.getItem("wishlist"))
     if(data?.find((ele) => ele?.mal_id === id)){
       console.log("Matched Data")
       return
@@ -24,25 +24,27 @@ const Watchlist = (props) => {
   };
 
   useEffect(() => {
-    const data = JSON.parse(window.sessionStorage.getItem('wishlist'));
+    const data = JSON.parse(sessionStorage.getItem('wishlist'));
     setWishListBoard(data);
   }, [])
 
   useEffect(() => {
-    window.sessionStorage.setItem('wishlist', JSON.stringify(wishListBoard));
+    sessionStorage.setItem('wishlist', JSON.stringify(wishListBoard));
   }, [wishListBoard]);
 
   return (
     <>
-    <div ref={drop} className="border h-100">
-      <p className="fs-2 mb-5">This is watchlist</p>
+    <div ref={drop} className="h-100">
+      <p className="fs-2 mb-4 mt-2 text-center">This is watchlist</p>
       {wishListBoard?.length ? (
         wishListBoard?.map((anime) => (
-          <p key={anime?.mal_id}>{anime?.title}</p>
+          <div key={anime?.mal_id} className="m-2 text-bg-success">
+            <p className="fs-5 text-center">{anime?.title}</p>
+          </div>
         ))
       ) : (
         <>
-          <p>No data Present</p>
+          <p className="text-center fs-5">Drag anime to wishlist</p>
         </>
       )}
       </div>
