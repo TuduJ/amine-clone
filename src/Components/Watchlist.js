@@ -20,7 +20,7 @@ const Watchlist = (props) => {
       return
     }
     const wishList = animeData?.data?.filter((anime) => id === anime?.mal_id);
-    setWishListBoard((wishListBoard) => [...wishListBoard, wishList[0]]);
+    setWishListBoard((wishListBoard) => [...wishListBoard, wishList?.[0]]);
   };
 
   useEffect(() => {
