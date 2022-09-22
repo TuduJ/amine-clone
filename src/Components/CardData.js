@@ -1,11 +1,20 @@
 import React from "react";
+import { useDrag } from "react-dnd";
 
 const CardData = (props) => {
   const { cardData } = props;
 
+  const [{isDragging}, drag] = useDrag(() => ({
+    type: "div",
+    item: {id: cardData?.mal_id},
+    collect: (monitor) => ({
+      isDragging: !!monitor.isDragging(),
+    })
+  }))
+
   return (
     <>
-      <div className="card mt-4">
+      <div className="card mt-4" id={cardData?.mal_id} ref={drag} >
         <div>
           <img
             src={cardData?.images?.jpg?.image_url}

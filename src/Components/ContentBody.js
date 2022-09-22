@@ -21,11 +21,12 @@ const ContentBody = (props) => {
   //   console.log(response?.data)
   // }
 
+
   const animeList = () => {
     return (
       <>
         {animeData?.data?.map((anime) => (
-          <div key={anime?.mal_id} className="col-sm-6 col-lg-4 col-xl-3">
+          <div key={anime?.mal_id} className="col-sm-6 col-lg-4 col-xl-3" >
             <Link to={`/anime/${anime?.mal_id}/`}>
               <CardData cardData={anime} />
             </Link>
