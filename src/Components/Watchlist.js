@@ -1,10 +1,14 @@
 /* eslint-disable */
 import React, { useEffect, useState } from "react";
 import { useDrop } from "react-dnd";
+import { useDispatch, useSelector } from "react-redux";
+import { removeWishlist, setWishlist } from "../redux/actions/animeActions";
 
 const Watchlist = (props) => {
   const { animeData } = props;
   const [wishListBoard, setWishListBoard] = useState([]);
+  const wishlistData = useSelector((state) => state.allWishlist);
+  const dispatch = useDispatch();
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "div",
     drop: (item) => addImageToBoard(item.id),
@@ -15,37 +19,33 @@ const Watchlist = (props) => {
 
   const addImageToBoard = (id) => {
     const data = JSON.parse(sessionStorage.getItem("wishlist"));
-    if (data?.find((ele) => ele?.mal_id === id)) {
+    if (data.length && data?.find((ele) => ele?.mal_id === id)) {
       return;
     }
     const wishList = animeData?.data?.filter((anime) => id === anime?.mal_id);
-    setWishListBoard((wishListBoard) => [...wishListBoard, wishList?.[0]]);
+
+    dispatch(setWishlist(wishList?.[0]));
   };
 
   const onListDelete = (id) => {
-    const wishListBoardCopy = wishListBoard.filter((data) => {
+    const wishListBoardCopy = wishlistData?.wishlist?.filter((data) => {
       if(data?.mal_id !== id){
         return data;
       }
     });
-     setWishListBoard(wishListBoardCopy);
+    dispatch(removeWishlist(wishListBoardCopy));
   }
 
   useEffect(() => {
-    const data = JSON.parse(sessionStorage.getItem("wishlist"));
-    if (!data?.length) setWishListBoard(data);
-  }, []);
-
-  useEffect(() => {
-    sessionStorage.setItem("wishlist", JSON.stringify(wishListBoard));
-  }, [wishListBoard]);
+    console.log(wishlistData)
+  }, [wishlistData])
 
   return (
     <>
       <div ref={drop} className="h-100">
         <p className="fs-2 mb-4 mt-2 text-center">This is watchlist</p>
-        {wishListBoard?.length ? (
-          wishListBoard?.map((anime) => (
+        {wishlistData?.wishlist?.length ? (
+          wishlistData?.wishlist?.map((anime) => (
             <div
               key={anime?.mal_id}
               className="m-2 row text-bg-success"

@@ -32,3 +32,17 @@ export const setGenreList = (genreList) => {
         payload: genreList,
     };
 };
+
+export const setWishlist = (wishList) => {
+    return {
+        type: ActionTypes.SET_WISHLIST,
+        payload: wishList,
+    };
+};
+
+export const removeWishlist = (wishList) => {
+    return {
+        type: ActionTypes.REMOVE_WISHLIST_DATA,
+        payload: wishList,
+    };
+};
